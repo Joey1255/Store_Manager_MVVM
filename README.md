@@ -19,3 +19,4 @@ After downloading the files and launching **Type2.sln**.
 - In the main folder I added a file called "SQLScript". Copy paste the contents into the new query window and run it.
 - Your database should now be ready with some dummy data to test the application.
   
+Note: in the future I plan to come back and uodate the login section of the app so that these are not just buttons that change the user mode but implement an acutal user login. However I have different technologies that interest me at the moment like Sveltekit that I am interested in right now and am trying to make some fun projects in.

@@ -1,0 +1,104 @@
+--Categorie inserts
+set identity_insert Categorieën on;
+INSERT INTO dbo.Categorieën(categorieId, naam, beschrijving) VALUES (1, 'Hamers', 'Alle soorten hamers');
+INSERT INTO dbo.Categorieën(categorieId, naam, beschrijving) VALUES (2, 'Schroevendraaiers', 'Alle soorten schroevendraaiers');
+INSERT INTO dbo.Categorieën(categorieId, naam, beschrijving) VALUES (3, 'Boormachines', 'Alle soorten boormachines');
+set identity_insert Categorieën off;
+
+--Locatie inserts
+set identity_insert Locaties on;
+INSERT INTO dbo.Locaties(LocatieId, Naam) VALUES (1, 'Winkel 1');
+INSERT INTO dbo.Locaties(LocatieId, Naam) VALUES (2, 'Winkel 2');
+INSERT INTO dbo.Locaties(LocatieId, Naam) VALUES (3, 'Winkel 3');
+INSERT INTO dbo.Locaties(LocatieId, Naam) VALUES (4, 'Winkel 4');
+INSERT INTO dbo.Locaties(LocatieId, Naam) VALUES (5, 'Winkel 5');
+set identity_insert Locaties off;
+
+--Product inserts
+set identity_insert Producten on;
+INSERT INTO dbo.Producten(ProductId, Productnummer, Naam, Prijs, Beschrijving, CategorieId) VALUES (1, 1, 'Makita', 120.00, 'Makita boormachine', 3);
+INSERT INTO dbo.Producten(ProductId, Productnummer, Naam, Prijs, Beschrijving, CategorieId) VALUES (2, 2, 'DeWalt', 150.00, 'DeWalt boormachine', 3);
+INSERT INTO dbo.Producten(ProductId, Productnummer, Naam, Prijs, Beschrijving, CategorieId) VALUES (3, 3, 'Stanley plat', 6.00, 'Stanley schroevendraaier plat', 2);
+INSERT INTO dbo.Producten(ProductId, Productnummer, Naam, Prijs, Beschrijving, CategorieId) VALUES (4, 4, 'Stanley kruis', 6.00, 'Stanley schroevendraaier kruis', 2);
+INSERT INTO dbo.Producten(ProductId, Productnummer, Naam, Prijs, Beschrijving, CategorieId) VALUES (5, 5, 'Kreator hamer', 11.99, 'Metalen hamer van kreator', 1);
+set identity_insert Producten off;
+
+--Klant inserts
+set identity_insert Klanten on;
+INSERT INTO dbo.Klanten(KlantId, Telefoonnummer, Straat, Huisnummer, Gemeente, Email, Voornaam, Achternaam, Professioneel) VALUES (1, '3436044053', 'Cottonwood', '75', 'Lier', 'rattride1@mapquest.com', 'Rene', 'Attride', 'FALSE');
+INSERT INTO dbo.Klanten(KlantId, Telefoonnummer, Straat, Huisnummer, Gemeente, Email, Voornaam, Achternaam, Professioneel) VALUES (2, '5129764245', 'Bowman', '81', 'Deurne', 'vskeates1@netscape.com', 'Grant', 'Barniss', 'FALSE');
+INSERT INTO dbo.Klanten(KlantId, Telefoonnummer, Straat, Huisnummer, Gemeente, Email, Voornaam, Achternaam, Professioneel) VALUES (3, '2927419029', 'Twin Pines', '101', 'Antwerpen', 'amartelloc@pinterest.com', 'Averill', 'Martello', 'FALSE');
+INSERT INTO dbo.Klanten(KlantId, Telefoonnummer, Straat, Huisnummer, Gemeente, Email, Bedrijfsnaam, Btwnummer, Professioneel) VALUES (4, '9249143949', 'Mccormick', '36', 'Brussel', 'lfrazierb@wsj.com', 'Plumbo', 'BE69965889131','TRUE');
+INSERT INTO dbo.Klanten(KlantId, Telefoonnummer, Straat, Huisnummer, Gemeente, Email, Bedrijfsnaam, Btwnummer, Professioneel) VALUES (5, '8961687422', 'Old Gate', '65', 'Brussel', 'cloomise@joomla.org', 'Stuckadoorgroep', 'BE25963789121','TRUE');
+set identity_insert Klanten off;
+
+--Stock inserts
+set identity_insert Stock on;
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (1, 50, 1, 1);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (2, 96, 2, 2);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (3, 80, 3, 3);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (4, 105, 4, 4);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (5, 20, 5, 5);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (6, 36, 1, 5);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (7, 86, 3, 4);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (8, 50, 2, 3);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (9, 50, 4, 2);
+INSERT INTO dbo.Stock(StockId, Aantal, ProductId, LocatieId) VALUES (10, 50, 5, 1);
+set identity_insert Stock off;
+
+--Order inserts
+set identity_insert Orders on;
+INSERT INTO dbo.Orders(OrderId, Ordernummer, KlantId) VALUES (1, 'OR19638', 1);
+INSERT INTO dbo.Orders(OrderId, Ordernummer, KlantId) VALUES (2, 'OR86135', 2);
+INSERT INTO dbo.Orders(OrderId, Ordernummer, KlantId) VALUES (3, 'OR52694', 3);
+INSERT INTO dbo.Orders(OrderId, Ordernummer, KlantId) VALUES (4, 'OR12587', 4);
+INSERT INTO dbo.Orders(OrderId, Ordernummer, KlantId) VALUES (5, 'OR36948', 5);
+set identity_insert Orders off;
+
+--OrderProduct inserts
+set identity_insert OrderProducten on;
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (1, 3, 1);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (2, 2, 2);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (3, 1, 3);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (4, 4, 4);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (5, 5, 5);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (6, 3, 1);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (7, 2, 2);
+INSERT INTO dbo.OrderProducten(OrderProductId, ProductId, OrderId) VALUES (8, 5, 3);
+set identity_insert OrderProducten off;
+
+--Kortingskaarten
+set identity_insert Kortingskaarten on;
+INSERT INTO dbo.Kortingskaarten(KortingskaartId, Code, Percentage, Professioneel) VALUES (1, '58613795', 10, 'FALSE');
+INSERT INTO dbo.Kortingskaarten(KortingskaartId, Code, Percentage, Professioneel) VALUES (2, '96584351', 10, 'FALSE');
+set identity_insert Kortingskaarten off;
+
+--Facturen inserts
+set identity_insert Facturen on;
+INSERT INTO dbo.Facturen(FactuurId, BtwPercentage, BtwNummer, OrderId, KortingskaartId) VALUES (1, 21, 'FALSE', 1, 1);
+INSERT INTO dbo.Facturen(FactuurId, BtwPercentage, BtwNummer, OrderId, KortingskaartId) VALUES (2, 21, 'FALSE', 2, 2);
+INSERT INTO dbo.Facturen(FactuurId, BtwPercentage, BtwNummer, OrderId) VALUES (3, 21, 'FALSE', 3);
+INSERT INTO dbo.Facturen(FactuurId, BtwPercentage, BtwNummer, OrderId) VALUES (4, 6, 'TRUE', 4);
+INSERT INTO dbo.Facturen(FactuurId, BtwPercentage, BtwNummer, OrderId) VALUES (5, 6, 'TRUE', 5);
+set identity_insert Facturen off;
+
+--Medewerker inserts
+set identity_insert Medewerkers on;
+INSERT INTO dbo.Medewerkers(MedewerkerId, Voornaam, Achternaam, Email, Paswoord) VALUES (1, 'Stewart', 'Philott', 'sphilott1@macromedia.com', 'wachtwoord1?');
+INSERT INTO dbo.Medewerkers(MedewerkerId, Voornaam, Achternaam, Email, Paswoord) VALUES (2, 'Kaine', 'Tewkesbury', 'ktewkesbury2@washingtonpost.com', 'wachtwoord2?');
+INSERT INTO dbo.Medewerkers(MedewerkerId, Voornaam, Achternaam, Email, Paswoord) VALUES (3, 'Jeanna', 'Antoniades', 'jantoniadesa@jalbum.net', 'wachtwoord3?');
+set identity_insert Medewerkers off;
+
+--Diesnten inserts
+set identity_insert Diensten on;
+INSERT INTO dbo.Diensten(DienstId, Naam, Prijs, Beschrijving) VALUES (1, 'Installatie Toilet', 100, 'De installatie van uw nieuw toilet bij u thuis.');
+INSERT INTO dbo.Diensten(DienstId, Naam, Prijs, Beschrijving) VALUES (2, 'Hout Op Maat', 50, 'Houte balken of platen op maat gezaagd.');
+INSERT INTO dbo.Diensten(DienstId, Naam, Prijs, Beschrijving) VALUES (3, 'Bestelwagen Huren', 150, 'Krijg je wat je gekocht hebt niet naar huis of heb je een wagen nodig om te verhuizen? Huur een bestelwagen.');
+set identity_insert Diensten off;
+
+--OrderDiensten inserts
+set identity_insert OrderDiensten on;
+INSERT INTO dbo.OrderDiensten(OrderDienstId, DienstId, OrderId) VALUES (1, 2, 1);
+INSERT INTO dbo.OrderDiensten(OrderDienstId, DienstId, OrderId) VALUES (2, 1, 2);
+INSERT INTO dbo.OrderDiensten(OrderDienstId, DienstId, OrderId) VALUES (3, 3, 3);
+set identity_insert OrderDiensten off;

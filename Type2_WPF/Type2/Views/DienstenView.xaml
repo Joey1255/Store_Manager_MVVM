@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="wpf.Views.DienstenView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:wpf.Viewmodels"
+             xmlns:views="clr-namespace:wpf.Views"
+             xmlns:local="clr-namespace:wpf.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.Column="1" Margin="0,30,30,0" Padding="10,10,10,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="AANMAKEN"
+                        Grid.Column="0"
+                        BorderThickness="0" 
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        ToolTip="MaterialDesignFlatMidButton"  
+                        Command="{Binding}" 
+                        CommandParameter="Aanmaken"/>
+
+                <Button Content="OVERZICHT"
+                        Grid.Column="1"
+                        BorderThickness="0" 
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        ToolTip="MaterialDesignFlatMidButton"  
+                        Command="{Binding}" 
+                        CommandParameter="Overzicht"/>
+            </Grid>
+        </materialDesign:ColorZone>
+
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto" Content="{Binding CurrentViewmodel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:DienstenAanmakenViewmodel}">
+                    <views:DienstenAanmakenView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:DienstenOverzichtViewmodel}">
+                    <views:DienstenOverzichtView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</UserControl>
